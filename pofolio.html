@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anslem Oliobi | Portfolio</title>
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cormorant Garamond (classy serif) & Plus Jakarta Sans (clean sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        editorial: {
+                            bg: '#e5e3dc',       // Classic warm-putty background from image_e70ff2.jpg
+                            bgLight: '#eceae4',  // Lighter tone for panels and cards
+                            bgHover: '#f3f1eb',  // Clean light hover state
+                            dark: '#1c1b18',     // Elegant soft off-black text
+                            muted: '#5a5852',    // Beautiful muted slate gray for secondary labels
+                            border: '#cbc8bf',   // Fine-line subtle separator
+                            accent: '#2f5233',   // Deep botanical/forest green representing biology & science
+                            blue: '#415a77',     // Muted steel-blue representing tech and systems
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar matching editorial style */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e5e3dc;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbc8bf;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a59e;
+        }
+
+        /* Custom selections */
+        ::selection {
+            background-color: #2f5233;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body class="bg-editorial-bg text-editorial-dark font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Bar matching image_e70ff2.jpg editorial style -->
+    <header class="border-b border-editorial-border/60 sticky top-0 z-40 bg-editorial-bg/95 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
+            <a href="#"
+                class="font-serif font-bold text-2xl tracking-tight text-editorial-dark hover:opacity-80 transition">
+                Anslem Oliobi
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav
+                class="hidden md:flex items-center space-x-10 text-xs uppercase tracking-widest font-semibold text-editorial-muted">
+                <a href="#about" class="hover:text-editorial-dark transition">About</a>
+                <a href="#workflows" class="hover:text-editorial-dark transition">Workflows</a>
+                <a href="#experience" class="hover:text-editorial-dark transition">Experience</a>
+                <a href="#education" class="hover:text-editorial-dark transition">Education</a>
+                <a href="#contact" class="hover:text-editorial-dark transition">Contact</a>
+            </nav>
+
+            <!-- Document Download Button -->
+            <div class="hidden md:flex">
+                <a href="#" onclick="showDocumentNotice(event)"
+                    class="text-xs uppercase tracking-widest font-bold border border-editorial-dark/30 hover:border-editorial-dark px-5 py-2.5 rounded-none transition flex items-center gap-2">
+                    <i class="fa-regular fa-file-pdf"></i> CV Resume
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-editorial-dark focus:outline-none p-1">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Navigation Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-editorial-bg border-b border-editorial-border px-6 py-6 space-y-4">
+            <a href="#about"
+                class="block text-sm uppercase tracking-widest font-semibold text-editorial-muted hover:text-editorial-dark">About</a>
+            <a href="#workflows"
+                class="block text-sm uppercase tracking-widest font-semibold text-editorial-muted hover:text-editorial-dark">Workflows</a>
+            <a href="#experience"
+                class="block text-sm uppercase tracking-widest font-semibold text-editorial-muted hover:text-editorial-dark">Experience</a>
+            <a href="#education"
+                class="block text-sm uppercase tracking-widest font-semibold text-editorial-muted hover:text-editorial-dark">Education</a>
+            <a href="#contact"
+                class="block text-sm uppercase tracking-widest font-semibold text-editorial-muted hover:text-editorial-dark">Contact</a>
+            <div class="pt-4 border-t border-editorial-border/60">
+                <a href="#" onclick="showDocumentNotice(event)"
+                    class="inline-block text-xs uppercase tracking-widest font-bold border border-editorial-dark/30 hover:border-editorial-dark px-5 py-2.5 transition">
+                    <i class="fa-regular fa-file-pdf mr-1"></i> CV Resume
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section mirroring the clean, warm layout of image_e70ff2.jpg -->
+    <main class="flex-grow">
+        <section class="max-w-6xl mx-auto px-6 sm:px-10 py-12 md:py-20 lg:py-24 border-b border-editorial-border/60">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+                <!-- Left Hero: Classy Serif Typography -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div
+                        class="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest font-bold text-editorial-accent">
+                        <span class="w-2 h-2 rounded-full bg-editorial-accent animate-pulse"></span>
+                        Active Specialist & System Designer
+                    </div>
+
+                    <h1
+                        class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-editorial-dark font-medium">
+                        Hi, I'm Anslem, an AI automation engineer.
+                    </h1>
+
+                    <p
+                        class="font-sans text-editorial-muted text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl font-light">
+                        I bridge the analytical precision of a <strong
+                            class="font-medium text-editorial-dark">Parasitologist</strong> with the efficiency of
+                        modern <strong class="font-medium text-editorial-dark">Agentic Workflows</strong>. Designing
+                        robust digital infrastructure to support epidemiology, enterprise operations, and clean field
+                        datasets.
+                    </p>
+
+                    <!-- Profile Quick Facts / Highlights -->
+                    <div class="grid grid-cols-2 gap-6 pt-4 max-w-md border-t border-editorial-border/40">
+                        <div>
+                            <span
+                                class="block text-xs uppercase tracking-widest font-bold text-editorial-muted mb-1">Dual
+                                Focus</span>
+                            <span class="text-sm font-medium">Bioscience & Automation</span>
+                        </div>
+                        <div>
+                            <span
+                                class="block text-xs uppercase tracking-widest font-bold text-editorial-muted mb-1">Location</span>
+                            <span class="text-sm font-medium">Ikeja, Lagos, Nigeria</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#workflows"
+                            class="text-xs uppercase tracking-widest font-bold bg-editorial-dark text-editorial-bg hover:bg-editorial-dark/90 px-6 py-4 rounded-none transition shadow-sm">
+                            Explore Systems
+                        </a>
+                        <a href="#contact"
+                            class="text-xs uppercase tracking-widest font-bold border border-editorial-dark/30 hover:border-editorial-dark px-6 py-4 rounded-none transition">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image: Styled directly like image_e70ff2.jpg using your actual photo -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div
+                        class="w-full max-w-md aspect-[3/4] bg-editorial-bgLight border border-editorial-border/80 overflow-hidden relative group shadow-sm">
+                        <!-- High-Quality Graphic Overlays -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-editorial-dark/20 to-transparent mix-blend-multiply opacity-25 z-10">
+                        </div>
+                        <img src="WhatsApp Image 2026-01-11 at 01.00.13.jpeg" alt="Anslem Oliobi"
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 ease-out"
+                            onerror="this.style.display='none'; document.getElementById('avatar-fallback').classList.remove('hidden');">
+
+                        <!-- Beautiful SVG / Fallback if the local picture fails to load -->
+                        <div id="avatar-fallback"
+                            class="hidden absolute inset-0 flex flex-col items-center justify-center p-8 bg-editorial-bgLight text-center">
+                            <i class="fa-solid fa-microscope text-4xl text-editorial-accent/70 mb-3"></i>
+                            <i class="fa-solid fa-robot text-4xl text-editorial-blue/70 mb-4"></i>
+                            <span class="font-serif text-xl font-medium text-editorial-dark">Oliobi Anslem C.</span>
+                            <p class="text-xs text-editorial-muted mt-2">Parasitology, Data Analysis & AI Agent
+                                Workflows</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Pop-up modal alerting user to download resume file verbatim -->
+        <div id="document-modal"
+            class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-editorial-dark/40 backdrop-blur-sm">
+            <div class="bg-editorial-bgLight border border-editorial-dark/20 p-8 max-w-md w-full relative">
+                <button onclick="closeDocumentNotice()"
+                    class="absolute top-4 right-4 text-editorial-muted hover:text-editorial-dark p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <div class="space-y-4">
+                    <div
+                        class="w-10 h-10 rounded-none bg-editorial-accent/10 flex items-center justify-center text-editorial-accent text-lg">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-editorial-dark">CV Document Reference</h3>
+                    <p class="text-sm text-editorial-muted leading-relaxed font-light">
+                        To view complete verification details, references, and credential matrices, please download the
+                        original CV document:
+                    </p>
+                    <div
+                        class="p-3 bg-editorial-bg border border-editorial-border font-mono text-xs select-all text-editorial-dark overflow-x-auto">
+                        OLIOBI ANSLEM CHUKWUEMEKA CV Resume (11).pdf
+                    </div>
+                    <p class="text-xs text-editorial-muted italic">
+                        *This file is stored natively inside our shared documents archive folder.
+                    </p>
+                    <div class="pt-2 flex justify-end">
+                        <button onclick="closeDocumentNotice()"
+                            class="text-xs uppercase tracking-widest font-bold bg-editorial-dark text-editorial-bg px-5 py-3 rounded-none hover:bg-editorial-dark/90 transition">
+                            Acknowledge
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- High-fidelity Professional Bio & Vision -->
+        <section id="about" class="max-w-6xl mx-auto px-6 sm:px-10 py-16 md:py-24 border-b border-editorial-border/60">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <div class="lg:col-span-4">
+                    <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted block mb-3">01 /
+                        Biography</span>
+                    <h2 class="font-serif text-4xl font-semibold leading-tight text-editorial-dark">
+                        The Science of Automation
+                    </h2>
+                </div>
+
+                <div
+                    class="lg:col-span-8 space-y-6 text-editorial-muted font-light leading-relaxed text-base sm:text-lg">
+                    <p>
+                        I graduated with a Bachelor of Science in <strong
+                            class="font-medium text-editorial-dark">Parasitology & Entomology</strong> from Nnamdi
+                        Azikiwe University, maintaining an academic track of <strong
+                            class="font-medium text-editorial-dark">GPA 4.35/5.0</strong>. My university curriculum
+                        taught me system dynamics, scientific rigor, and population demographics.
+                    </p>
+                    <p>
+                        I quickly realized that epidemiological studies and public health structures rely heavily on
+                        seamless data integrity. By mastering zero-loss no-code arrays (like <strong
+                            class="font-medium text-editorial-dark">n8n</strong>), backend automation triggers, and AI
+                        engineering methodologies, I began building automated tools that keep clinical and enterprise
+                        databases perfectly synced in real time.
+                    </p>
+                    <p>
+                        Whether running community tracking workflows for the Lagos State Ministry of Health or deploying
+                        LLM chatbots for e-commerce, my mission is the same: absolute database accuracy, robust flow
+                        logic, and clear auditable metrics.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Clean, visual grids detailing n8n designs with minimal UI blocks -->
+        <section id="workflows"
+            class="max-w-6xl mx-auto px-6 sm:px-10 py-16 md:py-24 border-b border-editorial-border/60">
+            <div class="mb-12 md:mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted block mb-3">02 / System
+                    Engineering</span>
+                <h2 class="font-serif text-4xl font-semibold text-editorial-dark">Featured Workflows & Systems</h2>
+                <p class="text-sm text-editorial-muted mt-2 font-light">Review actual active low-code pipelines designed
+                    to scale operations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                <!-- System 1: DANG Lifestyle Bot -->
+                <div
+                    class="bg-editorial-bgLight border border-editorial-border/60 flex flex-col justify-between group hover:border-editorial-dark/40 transition duration-300">
+                    <div class="p-8 border-b border-editorial-border/40 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="text-[10px] font-mono tracking-widest uppercase font-bold text-editorial-blue bg-editorial-blue/10 px-2.5 py-1">
+                                Webhook Matrix
+                            </span>
+                            <span class="text-xs text-editorial-muted font-light">n8n & Gemini AI</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="font-serif text-2xl font-bold text-editorial-dark">DANG! Lifestyle AI Assistant
+                            </h3>
+                            <p class="text-sm leading-relaxed text-editorial-muted font-light">
+                                An intelligent conversational system that handles direct customer inquiries, retrieves
+                                live product data (skincare, fragrances, refunds), and automatically stores high-value
+                                leads inside an organized CRM.
+                            </p>
+                        </div>
+
+                        <!-- Mini Schematic mimicking the n8n logic from page 2 of document -->
+                        <div
+                            class="p-4 bg-editorial-bg border border-editorial-border/40 space-y-3 font-mono text-[10px] text-editorial-muted">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                                <span>[Webhook Trigger] → [AI Agent (Google Gemini)]</span>
+                            </div>
+                            <div class="pl-4 border-l border-editorial-border/80 py-1 space-y-1">
+                                <div>└─ Tool: Retrieve Live Products HTML</div>
+                                <div>└─ Tool: Resolve Return & Refund FAQ</div>
+                                <div>└─ Action: Append Lead to Sheets CRM</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                                <span>[Clean Output Formatting] → [ManyChat API Payload]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 bg-editorial-bg/30 grid grid-cols-2 gap-4">
+                        <a href="https://drive.google.com/file/d/1p45v9pB5KNVX4ehRTeAzAE6TwNK3A460/view?usp=sharing"
+                            target="_blank"
+                            class="text-center text-xs uppercase tracking-widest font-bold border border-editorial-dark/20 hover:border-editorial-dark py-3.5 transition">
+                            <i class="fa-solid fa-play mr-1.5"></i> Video Demo
+                        </a>
+                        <a href="https://johnsmithsenior.app.n8n.cloud" target="_blank"
+                            class="text-center text-xs uppercase tracking-widest font-bold bg-editorial-dark text-editorial-bg hover:bg-editorial-dark/90 py-3.5 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square mr-1.5"></i> Node Link
+                        </a>
+                    </div>
+                </div>
+
+                <!-- System 2: Bulk Account Verification -->
+                <div
+                    class="bg-editorial-bgLight border border-editorial-border/60 flex flex-col justify-between group hover:border-editorial-dark/40 transition duration-300">
+                    <div class="p-8 border-b border-editorial-border/40 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="text-[10px] font-mono tracking-widest uppercase font-bold text-editorial-accent bg-editorial-accent/10 px-2.5 py-1">
+                                Batch API Pipeline
+                            </span>
+                            <span class="text-xs text-editorial-muted font-light">n8n & Paystack API</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="font-serif text-2xl font-bold text-editorial-dark">Bulk Payroll Verification</h3>
+                            <p class="text-sm leading-relaxed text-editorial-muted font-light">
+                                A high-volume automation workflow designed to securely batch-verify thousands of field
+                                health worker bank accounts before payroll release, mitigating transactional loss in
+                                large public health projects.
+                            </p>
+                        </div>
+
+                        <!-- Mini Schematic mimicking the n8n logic from page 3 of document -->
+                        <div
+                            class="p-4 bg-editorial-bg border border-editorial-border/40 space-y-3 font-mono text-[10px] text-editorial-muted">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                                <span>[Google Sheets Trigger] → [Split into Batches (API Limit Control)]</span>
+                            </div>
+                            <div class="pl-4 border-l border-editorial-border/80 py-1 space-y-1">
+                                <div>└─ GET Request: Verify Account via Paystack API</div>
+                                <div>└─ Logic: Check if Valid (Conditional Routing)</div>
+                                <div>└─ Write: Valid to Verified Sheet | Invalid to Flagged Sheet</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                                <span>[Throttle Limit Wait Timer] → [Merge Loop Complete]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 bg-editorial-bg/30 grid grid-cols-2 gap-4">
+                        <a href="https://drive.google.com/file/d/1F3qwfrBRb08RcRi7Ly6gghN7eRMmXQf0/view?usp=sharing"
+                            target="_blank"
+                            class="text-center text-xs uppercase tracking-widest font-bold border border-editorial-dark/20 hover:border-editorial-dark py-3.5 transition">
+                            <i class="fa-solid fa-play mr-1.5"></i> Video Demo
+                        </a>
+                        <a href="https://johnsmithsenior.app.n8n.cloud" target="_blank"
+                            class="text-center text-xs uppercase tracking-widest font-bold bg-editorial-dark text-editorial-bg hover:bg-editorial-dark/90 py-3.5 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square mr-1.5"></i> Node Link
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Clean timeline listing your direct healthcare & field tracking history -->
+        <section id="experience"
+            class="max-w-6xl mx-auto px-6 sm:px-10 py-16 md:py-24 border-b border-editorial-border/60">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <div class="lg:col-span-4">
+                    <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted block mb-3">03 /
+                        History</span>
+                    <h2 class="font-serif text-4xl font-semibold leading-tight text-editorial-dark">
+                        Professional Work Experience
+                    </h2>
+                    <p class="text-sm text-editorial-muted mt-4 font-light leading-relaxed">
+                        Supporting massive regional field actions, clinical operations, and data entry validations
+                        across federal program networks.
+                    </p>
+                </div>
+
+                <!-- Vertical Detailed Timeline -->
+                <div class="lg:col-span-8 space-y-12">
+
+                    <!-- Role 1 -->
+                    <div class="border-b border-editorial-border/40 pb-10 last:border-b-0 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted">2025 –
+                                2026</span>
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-accent">Data &
+                                Programs Intern</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-editorial-dark">Mission to Save the Helpless
+                            (MITOSATH)</h3>
+                        <p class="text-sm text-editorial-muted font-light leading-relaxed">
+                            Contributed directly to the setup, validation, and optimization of National Health campaigns
+                            like the SARMAAM II in Bauchi State and Oncho MAM in Niger State. Developed secure
+                            verification pipelines with <strong class="font-medium text-editorial-dark">n8n</strong> and
+                            <strong class="font-medium text-editorial-dark">Claude Code</strong> to inspect and clean
+                            incoming dataset records. Set up tactical tracking tools like <strong
+                                class="font-medium text-editorial-dark">FieldSense</strong> and <strong
+                                class="font-medium text-editorial-dark">Lystloc</strong> to monitor health officer
+                            deployment compliance.
+                        </p>
+                    </div>
+
+                    <!-- Role 2 -->
+                    <div class="border-b border-editorial-border/40 pb-10 last:border-b-0 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted">2024 –
+                                2025</span>
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-accent">Surveillance
+                                Officer & Data Entry Specialist</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-editorial-dark">Lagos State Ministry of Health
+                        </h3>
+                        <span class="block text-xs text-editorial-muted uppercase tracking-widest">Dept. of
+                            Epidemiology, Biosecurity & Global Health</span>
+                        <p class="text-sm text-editorial-muted font-light leading-relaxed">
+                            Compiled weekly and monthly Integrated Disease Surveillance Reports (IDSR) across 20 Local
+                            Government Areas. Participated in active field investigations of critical Diphtheria and
+                            toxic foodborne outbreak clusters (contact tracing, sample coordination). Managed the Mass
+                            Drug Administration (MDA) campaign in Lagos Mainland LGA using custom KoboCollect surveys to
+                            track soil-transmitted helminthiasis treatment protocols.
+                        </p>
+                    </div>
+
+                    <!-- Role 3 -->
+                    <div class="border-b border-editorial-border/40 pb-10 last:border-b-0 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted">2023 –
+                                2024</span>
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-accent">Veterinary
+                                Lab Assistant</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-editorial-dark">Veterinary Teaching Hospital,
+                            University of Jos</h3>
+                        <p class="text-sm text-editorial-muted font-light leading-relaxed">
+                            Mastered clinical laboratory protocols, specializing in parasitological diagnostics,
+                            identification, animal handling, and laboratory biosafety.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Presenting academic pedigree and key accomplishments in clean horizontal blocks -->
+        <section id="education"
+            class="max-w-6xl mx-auto px-6 sm:px-10 py-16 md:py-24 border-b border-editorial-border/60">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <div class="lg:col-span-4">
+                    <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted block mb-3">04 /
+                        Credentials</span>
+                    <h2 class="font-serif text-4xl font-semibold leading-tight text-editorial-dark">
+                        Education & Certifications
+                    </h2>
+                    <p class="text-sm text-editorial-muted mt-4 font-light leading-relaxed">
+                        Validation of technical capabilities, prompt engineering credentials, and academic coursework.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-8 space-y-8">
+
+                    <!-- Academics 1 -->
+                    <div
+                        class="p-6 sm:p-8 bg-editorial-bgLight border border-editorial-border/40 grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
+                        <div class="sm:col-span-1">
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted">2019 –
+                                2024</span>
+                        </div>
+                        <div class="sm:col-span-3 space-y-1">
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-accent">Bachelor of
+                                Science</span>
+                            <h4 class="font-serif text-xl font-bold text-editorial-dark">Parasitology & Entomology</h4>
+                            <p class="text-sm text-editorial-muted font-light">Nnamdi Azikiwe University | Cumulative
+                                GPA: <strong class="font-medium text-editorial-dark">4.35 / 5.0</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Academics 2 -->
+                    <div
+                        class="p-6 sm:p-8 bg-editorial-bgLight border border-editorial-border/40 grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
+                        <div class="sm:col-span-1">
+                            <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted">2024</span>
+                        </div>
+                        <div class="sm:col-span-3 space-y-1">
+                            <span
+                                class="text-xs uppercase tracking-widest font-bold text-editorial-blue">Certification</span>
+                            <h4 class="font-serif text-xl font-bold text-editorial-dark">Data Analysis & AI Prompt
+                                Engineer</h4>
+                            <p class="text-sm text-editorial-muted font-light">HP LIFE Foundation | Specialized Prompt
+                                Architecture Studies</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Listing high-value contacts like Dr. Ismail Abdus-Salam from the state department -->
+        <section class="max-w-6xl mx-auto px-6 sm:px-10 py-16 md:py-24 border-b border-editorial-border/60">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                <!-- Reference Card -->
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted block">05 /
+                        Endorsement</span>
+                    <h3 class="font-serif text-3xl font-semibold text-editorial-dark">Department Reference</h3>
+
+                    <div class="p-6 bg-editorial-bgLight border border-editorial-border/60 space-y-3">
+                        <div>
+                            <h4 class="font-serif text-lg font-bold text-editorial-dark">Dr. Ismail Abdus-Salam</h4>
+                            <p class="text-xs uppercase tracking-widest text-editorial-accent font-semibold">Director,
+                                Ministry of Health</p>
+                            <p class="text-xs text-editorial-muted">Dept. of Epidemiology, Biosecurity and Global
+                                Health, Lagos State</p>
+                        </div>
+                        <div
+                            class="pt-2 border-t border-editorial-border/40 text-xs text-editorial-muted space-y-1 font-mono">
+                            <div><i class="fa-solid fa-phone mr-1.5"></i> 0802 316 9485</div>
+                            <div><i class="fa-solid fa-envelope mr-1.5"></i> dradeshinaismail@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volunteer Experience -->
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-widest font-bold text-editorial-muted block">06 / Civic
+                        Duties</span>
+                    <h3 class="font-serif text-3xl font-semibold text-editorial-dark">Community Volunteering</h3>
+
+                    <div class="space-y-3">
+                        <div class="p-5 bg-editorial-bgLight border border-editorial-border/60 flex items-start gap-3">
+                            <i class="fa-solid fa-kit-medical text-editorial-accent text-sm mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-editorial-dark">Nigerian Red Cross Society</h4>
+                                <p class="text-xs text-editorial-muted mt-1">Providing emergency medical support and
+                                    health assistance in communal situations.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-editorial-bgLight border border-editorial-border/60 flex items-start gap-3">
+                            <i class="fa-solid fa-check-to-slot text-editorial-blue text-sm mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-editorial-dark">INEC Ad-hoc Staff</h4>
+                                <p class="text-xs text-editorial-muted mt-1">Collaborating to facilitate local
+                                    democratic integrity and transparent operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Minimalist dark charcoal footer for professional inquiries -->
+    <footer id="contact"
+        class="bg-editorial-dark text-editorial-bgLight py-16 md:py-24 border-t border-editorial-border">
+        <div class="max-w-6xl mx-auto px-6 sm:px-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-editorial-bgLight/10">
+
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="text-xs uppercase tracking-widest font-bold text-editorial-bgLight/40 block">07 /
+                        Connect</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight text-editorial-bgLight">
+                        Start a System Consultation
+                    </h2>
+                    <p class="text-sm text-editorial-bgLight/60 font-light leading-relaxed max-w-md">
+                        Let's plan how clean workflows, database structures, or AI agent integrations can upgrade your
+                        clinical research or corporate infrastructure.
+                    </p>
+                </div>
+
+                <!-- Technical Contacts Detail Block -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+                    <div class="p-6 bg-editorial-bgLight/5 border border-editorial-bgLight/10 space-y-4">
+                        <span class="text-xs uppercase tracking-widest font-bold text-editorial-bgLight/40 block">Direct
+                            Mailbox</span>
+                        <a href="mailto:oliobianslem@gmail.com"
+                            class="block font-serif text-xl font-bold hover:text-editorial-bgLight/80 transition break-all">
+                            oliobianslem@gmail.com
+                        </a>
+                        <span class="block text-xs text-editorial-bgLight/40">Guaranteed response within 24
+                            hours.</span>
+                    </div>
+
+                    <div class="p-6 bg-editorial-bgLight/5 border border-editorial-bgLight/10 space-y-4">
+                        <span class="text-xs uppercase tracking-widest font-bold text-editorial-bgLight/40 block">Mobile
+                            Lines</span>
+                        <div class="space-y-1">
+                            <a href="tel:09061163436"
+                                class="block font-serif text-lg font-bold hover:text-editorial-bgLight/80 transition">
+                                0906 116 3436
+                            </a>
+                            <a href="tel:08112419483"
+                                class="block font-serif text-lg font-bold hover:text-editorial-bgLight/80 transition">
+                                0811 241 9483
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Line details -->
+            <div class="pt-8 flex flex-wrap justify-between items-center gap-4 text-xs text-editorial-bgLight/40">
+                <div>
+                    &copy; <span id="year"></span> Oliobi Anslem C. All rights reserved.
+                </div>
+                <div class="font-light">
+                    Built with n8n precision, optimized for Google Sites embedding. Reference Document: <span
+                        class="font-mono text-[10px]">OLIOBI ANSLEM CHUKWUEMEKA CV Resume (11).pdf</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // Responsive mobile menu toggle execution
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Auto-close menu drawer when selecting page section
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal triggers for download notice of PDF resume
+        const documentModal = document.getElementById('document-modal');
+
+        function showDocumentNotice(event) {
+            event.preventDefault();
+            documentModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Lock background scroll
+        }
+
+        function closeDocumentNotice() {
+            documentModal.classList.add('hidden');
+            document.body.style.overflow = ''; // Unlock background scroll
+        }
+
+        // Close modal if user clicks outside of the pop-up box
+        window.addEventListener('click', (event) => {
+            if (event.target === documentModal) {
+                closeDocumentNotice();
+            }
+        });
+    </script>
+</body>
+
+</html>
